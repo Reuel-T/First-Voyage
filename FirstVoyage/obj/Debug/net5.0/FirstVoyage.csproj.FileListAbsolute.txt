@@ -1,0 +1,16 @@
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\bin\Debug\net5.0\FirstVoyage.exe
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\bin\Debug\net5.0\FirstVoyage.deps.json
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\bin\Debug\net5.0\FirstVoyage.runtimeconfig.json
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\bin\Debug\net5.0\FirstVoyage.runtimeconfig.dev.json
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\bin\Debug\net5.0\FirstVoyage.dll
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\bin\Debug\net5.0\ref\FirstVoyage.dll
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\bin\Debug\net5.0\FirstVoyage.pdb
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.csprojAssemblyReference.cache
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.AssemblyInfoInputs.cache
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.AssemblyInfo.cs
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.csproj.CoreCompileInputs.cache
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.dll
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\ref\FirstVoyage.dll
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.pdb
+C:\Users\Reuel\Documents\Campus Docs\YEAR 3\PROG 7311\Apps\Solid-I Hope\FirstVoyage\obj\Debug\net5.0\FirstVoyage.genruntimeconfig.cache
