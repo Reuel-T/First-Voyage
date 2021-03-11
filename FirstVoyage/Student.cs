@@ -1,5 +1,6 @@
 namespace FirstVoyage
 {
+    //Single Responsibility - This has everything to do with a student, and nothing else
     public abstract class Student
     {
         private string id;
