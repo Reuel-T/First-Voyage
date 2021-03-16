@@ -7,6 +7,13 @@ namespace FirstVoyage
         private string firstName;
         private string lastName;
         private bool enrolled;
+        private int type;
+
+        public abstract int getLectureHours();
+
+        public void doAssessment(){
+            //do exam stuff
+        }
         
         public Student(string id, string firstName, string lastName, bool enrolled)
         {

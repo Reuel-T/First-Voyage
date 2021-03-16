@@ -9,7 +9,8 @@ namespace FirstVoyage
     {
         private string facilitator;
 
-        public DistanceStudent(string id, string firstName, string lastName, bool enrolled, string facilitator) : base(id, firstName, lastName, enrolled)
+        public DistanceStudent(string id, string firstName, string lastName, bool enrolled, string facilitator) : 
+            base(id, firstName, lastName, enrolled)
         {
             this.facilitator = facilitator;
         }
@@ -18,6 +19,10 @@ namespace FirstVoyage
 
         public void studyFromHome(){
             //do study from home things
+        }
+
+        public override int getLectureHours(){
+            return 50;
         }
     }
 }

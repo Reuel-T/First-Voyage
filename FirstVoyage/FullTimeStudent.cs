@@ -15,5 +15,9 @@ namespace FirstVoyage
         public void studyFromHome(){
             //Studies from home, but differently from Distance Student
         }
+
+        public override int getLectureHours(){
+            return 100;
+        }
     }
 }
