@@ -2,6 +2,6 @@ namespace FirstVoyage
 {
     public class DataHolder
     {
-        FullTimeStudent[] students = {};
+        List<Student> parts = new List<Student>();
     }
 }

@@ -2,7 +2,10 @@ namespace FirstVoyage
 {
     //Liskov's Substitution Principle - A child class of student can be used in the place of a parent student class
     //Kinda forced this one, we made Student abstract
+    
     //Interface Segregation - Distance Student implements the WorkFromHome interface. It can be implemented elsewhere if needed
+    //Maybe there is another student type that can be extended later that does not need the method in the WorkFromHomeInterface
+    
     //Dependency Inversion - Both Full Time and Distance students need access to the study from home methods, but their implementation
     //would be different. These concepts are hard to implement in such a basic app
     public class DistanceStudent : Student, IWorkFromHome
