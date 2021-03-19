@@ -7,115 +7,264 @@ namespace FirstVoyage
 {
     class Program
     {
-        static bool mainLoop = true;
+        //arrays to hold the various menu choices
+        static string[] mainMenuChoices = {"Add Students", "View Students", "Quit"};
+        static string[] studentMenuChoices = {"Full Time", "Distance", "Back"};
+        static string[] booleanChoice = {"No", "Yes"};
+
+        static string filename = "records.txt";
+
+        //menu choice colors - because I'm extra
+        static ConsoleColor[] mainMenuChoiceColors = {ConsoleColor.Green,ConsoleColor.Cyan, ConsoleColor.Yellow};
+
         static void Main(string[] args)
         {            
-            String greetResponse = String.Empty;
-
-            //while exit condition
-            while(!greetResponse.Equals("q"))
-            {
-                greet();
-                greetResponse = Console.ReadLine();
-                
-                if(greetResponse.Equals("q"))
-                {
-                    System.Console.WriteLine("QUIT");
-                }
-                else if(greetResponse.Equals("a"))
-                {
-                    Console.Clear();
-                    addStudents();
-                        
-                }else if(greetResponse.Equals("v"))
-                {
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    System.Console.WriteLine(DataHolder.studentReport());
-                    System.Console.WriteLine("\nPress Any Key to Return to the Main menu");
-                    Console.ReadKey();
-                }else
-                {
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    System.Console.WriteLine("INPUT NOT RECOGNIZED");
-                    Console.ReadKey();
-                }
-                                
-            }
-            
-
+            FileWorker fw = new FileWorker(filename);
+            ListHolder.setStudents(fw.readFile());
+            titleScreen();
+            mainMenu();
         }
 
-        static void greet(){
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.White;
-            System.Console.WriteLine("UNIVERSITY MANAGEMENT SYSTEM\n\n");
-            System.Console.WriteLine("Would you like to:");
-            Console.ForegroundColor = ConsoleColor.Green;
-            System.Console.WriteLine("Add Students  [a]");
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            System.Console.WriteLine("View Students [v]");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            System.Console.WriteLine("Quit          [q]");
-            Console.ForegroundColor = ConsoleColor.White;
-            System.Console.Write(">>>    ");
-        }
-
-        static void addStudents(){
-            string addResponse = String.Empty;
+        //main menu logic
+        static void mainMenu()
+        {
+            int selection = 0;
             
-            while(!addResponse.Equals("n"))
+            ConsoleKeyInfo key;
+
+            do
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                string studentType = String.Empty;
-                while(!studentType.Equals("f") && !studentType.Equals("d"))
+                Console.Clear();
+
+                mainMenuTitle();
+
+                Console.ForegroundColor = ConsoleColor.White;
+                System.Console.WriteLine("Use the Arrow Keys to pick an option");
+
+                for (int i = 0; i < mainMenuChoices.Length; i++)
                 {
-                    if(studentType.Length > 0)
+                    Console.ForegroundColor = mainMenuChoiceColors[i];
+                    if (selection == i)
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-                        System.Console.WriteLine($"{studentType} is not a valid input");
+                        System.Console.Write(mainMenuChoices[i].PadRight(35));
+                        System.Console.WriteLine("<<");
                     }
-                    
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    System.Console.WriteLine("\nSelect Student Type:");
-                    System.Console.WriteLine("Full Time [f]");
-                    System.Console.WriteLine("Distance  [d]");
-                    System.Console.WriteLine(">>>    ");
-                    studentType = Console.ReadLine();
-                } 
+                    else
+                    {
+                        System.Console.WriteLine(mainMenuChoices[i]);    
+                    }
+                }
 
-                System.Console.Write("\n\nSTUDENT ID >>> ");
-                string id = Console.ReadLine();
-                System.Console.Write("FIRST NAME >>> ");
-                string firstName = Console.ReadLine();
-                System.Console.Write("LAST NAME  >>> ");
-                string lastName = Console.ReadLine();
+                key = Console.ReadKey(true);
 
-                switch (studentType)
+                if (key.Key.ToString() == "DownArrow")
                 {
-                    case "f":                 
-                        System.Console.Write("CAMPUS     >>> ");
-                        string campus = Console.ReadLine();
+                    selection++;
+                    if (selection > mainMenuChoices.Length - 1) 
+                    {
+                        selection = 0;
+                    }
+                }
+                else if (key.Key.ToString() == "UpArrow")
+                {
+                    selection--;
+                    if (selection < 0)
+                    {
+                        selection = mainMenuChoices.Length - 1;
+                    } 
+                }
+            } while (key.KeyChar != 13);
 
-                        DataHolder.addStudent(new FullTimeStudent(id, firstName, lastName, true, campus));
-                        System.Console.WriteLine($"\nFull Time Student with id:{id} added\n\n");
-                        break;
-                    case "d":
-                        System.Console.Write("FACILITATOR >>> ");
-                        string facilitator = Console.ReadLine();
+            switch (selection)
+            {
+                case 0:
+                    addStudentMenu();
+                    break;
+                case 1:
+                    viewStudents();
+                    break;
+                case 2:
+                    Console.ResetColor();
+                    Console.Clear();
+                    break;
+                default:
+                    break;
+            } 
+        }
 
-                        DataHolder.addStudent(new DistanceStudent(id, firstName, lastName, true, facilitator));
-                        System.Console.WriteLine($"\nPart Time Student with id:{id} added");
+        static void addStudentMenu()
+        {
+            int selection = 0;
+            
+            ConsoleKeyInfo key;
+
+            do
+            {
+                Console.Clear();
+
+                Console.ForegroundColor = ConsoleColor.White;
+                System.Console.WriteLine("Use the Arrow Keys to pick an option");
+
+                for (int i = 0; i < studentMenuChoices.Length; i++)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    if (selection == i)
+                    {
+                        System.Console.Write(studentMenuChoices[i].PadRight(35));
+                        System.Console.WriteLine("<<");
+                    }
+                    else
+                    {
+                        System.Console.WriteLine(studentMenuChoices[i]);    
+                    }
+                }
+
+                key = Console.ReadKey(true);
+
+                if (key.Key.ToString() == "DownArrow")
+                {
+                    selection++;
+                    if (selection > studentMenuChoices.Length - 1) 
+                    {
+                        selection = 0;
+                    }
+                }
+                else if (key.Key.ToString() == "UpArrow")
+                {
+                    selection--;
+                    if (selection < 0)
+                    {
+                        selection = studentMenuChoices.Length - 1;
+                    } 
+                }
+
+
+            } while (key.KeyChar != 13);
+
+            if (selection != 2)
+            {
+                addStudent(selection);
+            }
+            else
+            {
+                mainMenu();
+            }
+        }
+
+        //Displays the Title Screen
+        static void titleScreen()
+        {
+            Console.Clear();
+            int lineCount = 0;
+            foreach (string item in TitleStringHolder.lines)
+            {
+                switch (lineCount)
+                {
+                    case 0:
+                        Console.ForegroundColor = ConsoleColor.Green;
                         break;
+                    case 6:
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        break;
+                    case 12:
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        break;
+                    case 18:
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+
                     default:
                         break;
                 }
+                lineCount++;
 
-                System.Console.WriteLine("\n\nWould you like to add a student?[y/n]");
-                addResponse = Console.ReadLine();
+                System.Console.WriteLine($"{item}");
             }
+
+            Console.ReadKey();
+        }
+
+        //displays the main menu title
+        static void mainMenuTitle()
+        {
+            Console.Clear();
+
+            int lineCount = 0;
+
+            foreach (string line in TitleStringHolder.main_menu)
+            {
+                if (lineCount < 2)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                }
+                System.Console.WriteLine(line);
+                lineCount++;
+            }
+        }
+
+        static void addStudentMenuTitle()
+        {
+            //get a title string later
+        }
+
+        static void viewStudentsTitle()
+        {
+            //View Students Title goes here
+        }
+
+        static void addStudent(int selection)
+        {
+            Console.Write("STUDENT ID     >> ");
+            string id = Console.ReadLine();
+            Console.Write("FIRST NAME     >> ");
+            string fName = Console.ReadLine();
+            Console.Write("LAST NAME      >> ");
+            string lName = Console.ReadLine();
+
+            FileWorker fw = new FileWorker(filename);
+
+            if(selection == 0)
+            {
+                Console.Write("CAMPUS         >> ");
+                string campus = Console.ReadLine();
+                FullTimeStudent fts = new FullTimeStudent(id,fName,lName,true,campus);
+                ListHolder.addStudent(fts);
+                fw.addToFile(StudentFormatter.formatForWrite(fts));
+                
+            }else
+            {
+                Console.Write("FACILITATOR    >> ");
+                string facilitator = Console.ReadLine();
+                DistanceStudent dts = new DistanceStudent(id,fName,lName,true,facilitator);
+                ListHolder.addStudent(dts);
+                fw.addToFile(StudentFormatter.formatForWrite(dts));
+            }
+
+            System.Console.WriteLine($"Student with id {id} added");
+            System.Console.WriteLine("Press any key to go back ...");
+            Console.ReadKey();
+            addStudentMenu();
+        }
+
+        static void viewStudents()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            System.Console.WriteLine("");
+            
+            System.Console.WriteLine(StudentFormatter.studentReport(ListHolder.getStudents()));
+
+            System.Console.WriteLine("\n\n\nPress any Key to go back ...");
+            Console.ReadKey();
+    
+            mainMenu();
         }
 
     }
 }
+
+//Menu Code from : https://www.dreamincode.net/forums/topic/365540-Console-Menu-with-Arrowkeys/

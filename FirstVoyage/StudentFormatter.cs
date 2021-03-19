@@ -1,21 +1,10 @@
-using System.Threading;
-using System.Threading.Tasks;
-using System.Security;
 using System;
 using System.Collections.Generic;
-
 namespace FirstVoyage
 {
-    public static class DataHolder
+    public class StudentFormatter
     {
-        //move the list to another class, have list workers
-        private static List<Student> students = new List<Student>();
-
-        public static void addStudent(Student st){
-            students.Add(st);
-        }
-
-        public static string studentReport(){
+        public static string studentReport(List<Student> students){
             int fullTime = 0;
             int distance = 0;
             string ftStudents = String.Empty;
@@ -40,8 +29,23 @@ namespace FirstVoyage
             }
 
             return $"There are {fullTime} Full Time Students\nThere are {distance} Part Time Students\n\nFULL TIME STUDENTS:\n{ftStudents}\n\nPART TIME STUDENTS:\n{dtStudents}";
-
         }
 
+        public static string formatForWrite(Student stIn)
+        {
+            if (stIn is FullTimeStudent)
+                {
+                    FullTimeStudent fts = (FullTimeStudent)stIn;
+                    return $"F#{fts.getId()}#{fts.getFirstName()}#{fts.getLastName()}#{fts.getCampus()}";
+                }
+                else if (stIn is DistanceStudent)
+                {
+                    DistanceStudent dts = (DistanceStudent)stIn;
+                    return $"D#{dts.getId()}#{dts.getFirstName()}#{dts.getLastName()}#{dts.getFacilitator()}";
+                }else
+                {
+                    return $"E#{stIn.getId()}";
+                }
+        }
     }
 }

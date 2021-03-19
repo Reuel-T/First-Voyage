@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj": {}
+    "C:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj": {
+    "C:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj",
+        "projectUniqueName": "C:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj",
         "projectName": "FirstVoyage",
-        "projectPath": "c:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj",
+        "projectPath": "C:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\FirstVoyage.csproj",
         "packagesPath": "C:\\Users\\Reuel\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\obj\\",
+        "outputPath": "C:\\Users\\Reuel\\Documents\\Campus Docs\\YEAR 3\\PROG 7311\\Apps\\Solid-I Hope\\FirstVoyage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
