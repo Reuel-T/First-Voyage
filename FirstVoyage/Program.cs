@@ -31,7 +31,7 @@ namespace FirstVoyage
                 {
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    System.Console.WriteLine(DataHolder.numStudents());
+                    System.Console.WriteLine(DataHolder.studentReport());
                     System.Console.WriteLine("\nPress Any Key to Return to the Main menu");
                     Console.ReadKey();
                 }else
@@ -117,8 +117,5 @@ namespace FirstVoyage
             }
         }
 
-        static void numberStudents(){
-
-        }
     }
 }
